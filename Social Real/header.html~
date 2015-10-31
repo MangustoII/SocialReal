@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<link rel="stylesheet" href="Scroll.css">
+	<link rel="stylesheet" type="text/css" href="Style.css">
+		
+</head>
+
+<body>
+
+
+	<div id="sidebar">
+
+		<ul>
+			<li><a href="index.html">Main Page</a></li>
+			<li><a href="about.html">About us</a></li>
+			<li><a href="contact.html">Contact</a></li>
+			
+		</ul>
+
+		<div id="sidebar-btn">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+
+	</div>
+
+	
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>
+
+	$(document).ready(function(){
+		$('#sidebar-btn').click(function(){
+			$('#sidebar').toggleClass('visible');
+		});
+	});
+
+	</script>
+
+
+</body>
+
+</html>
+
+
+
+
+

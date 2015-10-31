@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>	
+	<link rel="stylesheet" type="text/css" href="Scroll.css">
+</head>
+
+<body> 
+<!-- Lateral bar -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	
+	<div id="new-header"><script>$("#new-header").load("header.html");</script></div>
+
+<script>
+$html = $("html");
+$list = $("ul");
+
+$(".new input").bind('blur keyup',function(e) {
+  if (e.type == 'blur' || e.keyCode == '13') {
+    
+    var item = $(this).val();
+    
+    if(item !== ""){
+      var listitem = '<li>'
+        + '<a class="check-toggle">'
+        + '<i></i>'
+        + '</a>'
+        + '<input value="' + item + '" placeholder="Add item..." />'
+        + '</li>'
+
+      $(this).val('').parent().after(listitem);
+      $(this).focus();
+    }
+  }   
+});
+
+$(document).on('click', '.check-toggle', function(){
+  $(this).parent().addClass("removed");
+});
+</script>
+
+<div class="lista">
+	 
+<section >
+    <li class="new">
+      <input placeholder="Add item..." />
+    </li>
+  <ul>
+    <li>
+      <a class="check-toggle"><i></i></a>
+      <input value="Add a new item above" />
+    </li>     
+  </ul>
+</section>
+
+</div>
+
+
+<a href="#" class="btn">Pesquisar</a>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>jQuery autocompleter</title>
+
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	<script>
+	$(document).ready(function() {
+    $("#add").click(function() {
+		var valueSearch = $("#search").val();
+		if (valueSearch != null ) { 
+			var intId = $("#buildyourform div").length + 1;
+			var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
+			var fName = $("<input type=\"text\" class=\"fieldname\" value='"+ valueSearch +",' disabled=\"disabled\"/>");
+			var removeButton = $("<input type=\"button\" class=\"remove\" value=\"-\" />");
+			removeButton.click(function() {
+				$(this).parent().remove();
+			});
+			fieldWrapper.append(fName);
+			fieldWrapper.append(removeButton);
+			$("#buildyourform").append(fieldWrapper);
+			$('#search').val('');
+		}
+    });
+    
+    /*----------------------------------------------------------------------------------------------------------------- */
+    $("#preview").click(function() {
+        $("#yourform").remove();
+        var fieldSet = $("<div id=\"yourform\"></div>");
+        $("#buildyourform div").each(function() {
+            var id = "input" + $(this).attr("id").replace("field","");
+            var label = $("<label for=\"" + id + "\">" + $(this).find("input.fieldname").first().val() + "</label>");
+            fieldSet.append(label);
+        });
+        $("body").append(fieldSet);
+    });
+
+	
+});
+
+</script>
+
+
+</head>
+
+<body>
+	
+	<select id="search">
+      <option>Afghanistan</option>
+      <option>Albania</option>
+      <option>Algeria</option>
+      <option>Andorra</option>
+      <option>Angola</option>
+      <option>Argentina</option>
+      <option>Armenia</option>
+      <option>Australia</option>
+      <option>Austria</option>
+      <option>Azerbaijan</option>
+      <option>Bahrain</option>
+    </select>
+
+	<input type="button" value="Add a field" class="add" id="add" />
+	<input type="button" value="Preview form" class="add" id="preview" />
+	<br/>
+	<div id="buildyourform"></div>
+	
+</body>
+</html>
