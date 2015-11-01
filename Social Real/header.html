@@ -2,13 +2,23 @@
 <html>
 
 <head>
-	<link rel="stylesheet" type="text/css" href="css/Scroll.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>
+
+	$(document).ready(function(){
+		$('#sidebar-btn').click(function(){
+			$('#sidebar').toggleClass('visible');
+		});
+	});
+
+	</script>
 </head>
 
 <body>
 	<div id="sidebar">
 		<ul>
-			<li><div class="avatar"></div></li>
 			<li><a href="index.html">Main Page</a></li>
 			<li><a href="about.html">About us</a></li>
 			<li><a href="contact.html">Contact</a></li>
@@ -22,17 +32,6 @@
 
 	</div>
 
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script>
-
-	$(document).ready(function(){
-		$('#sidebar-btn').click(function(){
-			$('#sidebar').toggleClass('visible');
-		});
-	});
-
-	</script>
 
 </body>
 </html>

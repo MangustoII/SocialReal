@@ -1,0 +1,30 @@
+drop database if exists socialreal;
+create database socialreal;
+use socialreal;
+
+create table if not exists `category` 
+(
+`idcategory` int(2) 		auto_increment primary key,
+`namecategory` varchar(15) 	not null
+);
+
+
+create table if not exists `notices`
+(
+`idnotice` int(5) 		auto_increment primary key,
+`titlenotice` varchar(70) 	not null,
+`linknotice` varchar(120) 	not null,
+`idcategory` int(15) 		not null,
+`datenotice` varchar(10) 	not null
+);
+
+insert into `category` values (1,"World");
+insert into `category` values (2,"Business");
+
+
+insert into `notices` values (1,"New Russian Gulag museum recreates Soviet terror","http://www.bbc.com/news/world-europe-34675413",1,"2015-10-30");
+insert into `notices` values (2,"A riot of scents at Delhi's oldest perfumery","http://www.bbc.com/news/world-asia-india-34674507",1,"2015-10-30");
+insert into `notices` values (3,"Eurozone inflation returns to zero","http://www.bbc.com/news/business-34675354",2,"2015-10-30");
+
+
+select * from `notices` inner join `category` on `notices`.`idcategory` = `category`.`idcategory`;
